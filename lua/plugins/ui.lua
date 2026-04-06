@@ -52,10 +52,6 @@ return {
           { '<leader>gb', desc = 'Git branches' },
           -- oil files
           { '<leader>e', desc = 'File explorer' },
-          -- yazi files
-          { '<leader>y', group = 'File explorer (Yazi)' },
-          { '<leader>yf', desc = 'Current file' },
-          { '<leader>yd', desc = 'Working directory' },
           -- trouble
           { '<leader>t', group = 'Lsp'},
           { '<leader>tx', desc = 'Project diagnostics'},
@@ -85,15 +81,6 @@ return {
         }
       })
     end
-  },
-  {
-    'mikavilpas/yazi.nvim',
-    version = 'v11.*',
-    dependencies = 'nvim-lua/plenary.nvim',
-    keys = {
-      { '<leader>yf', '<cmd>Yazi<CR>', desc = 'Open Yazi at the current file' },
-      { '<leader>yd', '<cmd>Yazi<CR>', desc = 'Open Yazi in working directory' }
-    }
   },
   {
     'echasnovski/mini.icons',

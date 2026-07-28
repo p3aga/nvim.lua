@@ -63,22 +63,62 @@ return {
     }
   },
   {
-    'stevearc/oil.nvim',
-    version = 'v2.15.*',
-    dependencies = 'echasnovski/mini.icons',
-    keys = {
-      { '<leader>e', '<cmd>Oil<CR>', 'Oil files' }
+    'nvim-neo-tree/neo-tree.nvim',
+    branch = "v3.x",
+    lazy = false,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
     },
-    config = function()
-      require('oil').setup({
-        view_options = {
-          is_hidden_file = function(name, _)
-            return name == '.git'
-          end
+    config = function ()
+      require('neo-tree').setup({
+        default_component_configs = {
+          indent = {
+            with_expanders = true,
+            expander_collapsed = '',
+            expander_expanded = '',
+          },
+          icon = {
+            folder_closed = '󰉋',
+            folder_open = '',
+            folder_empty = '',
+            default = '',
+          },
+          name = {
+            use_git_status_colors = true,
+          },
+          git_status = {
+            symbols = {
+              deleted = '',
+              renamed = '➜',
+              untracked = '',
+              unstaged = '',
+              staged = '',
+              ignored = '◌',
+              conflict = '',
+            },
+          },
         },
-        keymaps = {
-          ['<leader>e'] = { 'actions.close', mode = 'n' }
-        }
+        window = {
+          width = 30,
+        },
+        filesystem = {
+          filtered_items = {
+            hide_dotfiles = false,
+            hide_gitignored = false,
+            hide_by_name = {
+              '.git',
+            },
+          },
+        },
+        event_handlers = {
+          {
+            event = 'file_opened',
+            handler = function()
+              vim.cmd('Neotree close')
+            end,
+          },
+        },
       })
     end
   },

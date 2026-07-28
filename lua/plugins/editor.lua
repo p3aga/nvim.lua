@@ -1,32 +1,31 @@
 return {
   {
     'nvim-treesitter/nvim-treesitter',
-    version = 'v0.10.*',
     dependencies = 'HiPhish/rainbow-delimiters.nvim',
     lazy = false,
     build = ':TSUpdate',
     config = function ()
-      require('nvim-treesitter.configs').setup({
-        auto_install = true,
-        ensure_installed = {
-          'python',
-          'vue',
-          'html',
-          'bash',
-          'javascript',
-          'json',
-          'lua',
-          'dockerfile',
-          'yaml',
-          'markdown',
-          'markdown_inline',
-          'query',
-          'vim',
-          'vimdoc',
-          'gitcommit',
-          'gitignore',
-        },
-        highlight = { enable = true },
+      local nvim_treesitter = require('nvim-treesitter')
+      nvim_treesitter.setup({
+        install_dir = vim.fn.stdpath('data') .. '/site'
+      })
+      nvim_treesitter.install({
+        'python',
+        'vue',
+        'html',
+        'bash',
+        'javascript',
+        'json',
+        'lua',
+        'dockerfile',
+        'yaml',
+        'markdown',
+        'markdown_inline',
+        'query',
+        'vim',
+        'vimdoc',
+        'gitcommit',
+        'gitignore',
       })
     end
   },

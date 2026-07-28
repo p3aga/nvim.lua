@@ -84,6 +84,7 @@ require('lualine').setup({
     theme = lualine_color_theme,
     component_separators = { left = '', right = '' },
     section_separators = { left = '', right = '' },
+    disabled_filetypes = { 'neo-tree' },
   },
   sections = sections
 })

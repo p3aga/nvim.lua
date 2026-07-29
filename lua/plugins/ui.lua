@@ -70,57 +70,55 @@ return {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
     },
-    config = function ()
-      require('neo-tree').setup({
-        default_component_configs = {
-          indent = {
-            with_expanders = true,
-            expander_collapsed = '',
-            expander_expanded = '',
-          },
-          icon = {
-            folder_closed = '󰉋',
-            folder_open = '',
-            folder_empty = '',
-            default = '',
-          },
-          name = {
-            use_git_status_colors = true,
-          },
-          git_status = {
-            symbols = {
-              deleted = '',
-              renamed = '➜',
-              untracked = '',
-              unstaged = '',
-              staged = '',
-              ignored = '◌',
-              conflict = '',
-            },
+    opts = {
+      default_component_configs = {
+        indent = {
+          with_expanders = true,
+          expander_collapsed = '',
+          expander_expanded = '',
+        },
+        icon = {
+          folder_closed = '󰉋',
+          folder_open = '',
+          folder_empty = '',
+          default = '',
+        },
+        name = {
+          use_git_status_colors = true,
+        },
+        git_status = {
+          symbols = {
+            deleted = '',
+            renamed = '➜',
+            untracked = '',
+            unstaged = '',
+            staged = '',
+            ignored = '◌',
+            conflict = '',
           },
         },
-        window = {
-          width = 30,
-        },
-        filesystem = {
-          filtered_items = {
-            hide_dotfiles = false,
-            hide_gitignored = false,
-            hide_by_name = {
-              '.git',
-            },
+      },
+      window = {
+        width = 30,
+      },
+      filesystem = {
+        filtered_items = {
+          hide_dotfiles = false,
+          hide_gitignored = false,
+          hide_by_name = {
+            '.git',
           },
         },
-        event_handlers = {
-          {
-            event = 'file_opened',
-            handler = function()
-              vim.cmd('Neotree close')
-            end,
-          },
+      },
+      event_handlers = {
+        {
+          event = 'file_opened',
+          handler = function()
+            vim.cmd('Neotree close')
+          end,
         },
-      })
-    end
+      },
+    }
   },
   {
     'echasnovski/mini.icons',

@@ -88,18 +88,23 @@ return {
       { '<leader>tX', '<cmd>Trouble diagnostics toggle filter.buf=0<CR>', 'Buffer Diagnostics' },
       { 'td', '<cmd>Trouble lsp_definitions toggle<CR>', 'Diagnostics' },
     },
-    config = function()
-      require('trouble').setup({
-        focus = true,
-        modes = {
-          lsp_definitions = {
-            win = {
-              position = 'right',
-              size = 80
-            },
+    opts = {
+      focus = true,
+      modes = {
+        lsp_definitions = {
+          win = {
+            position = 'right',
+            size = 80
           },
-        }
-      })
+        },
+      }
+    },
+    config = function(_, opts)
+      local has_ts, trouble_ts = pcall(require, 'trouble.view.treesitter')
+      if has_ts then
+        trouble_ts.setup = function() end
+      end
+      require('trouble').setup(opts)
     end
   }
 }

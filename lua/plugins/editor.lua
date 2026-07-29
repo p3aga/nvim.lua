@@ -43,12 +43,16 @@ return {
     event = 'VeryLazy'
   },
   {
-    'echasnovski/mini.pairs',
-    version = 'v0.16.*',
+    'windwp/nvim-autopairs',
     event = 'VeryLazy',
-    config = function ()
-      require('mini.pairs').setup()
-    end
+    opts = {
+      check_ts = true,
+      ts_config = {
+        lua = { 'string' },
+        javascript = { 'template_string' },
+        java = false,
+      },
+    },
   },
   {
     'lewis6991/gitsigns.nvim',

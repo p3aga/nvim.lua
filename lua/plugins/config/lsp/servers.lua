@@ -1,4 +1,4 @@
-local servers = {
+return {
   'ansiblels',
   'astro',
   'bashls',
@@ -14,10 +14,3 @@ local servers = {
   'vue_ls',
   'yamlls',
 }
-
-vim.lsp.enable(servers)
-
-vim.diagnostic.config({
-  virtual_text = true,
-  severity_sort = true
-})

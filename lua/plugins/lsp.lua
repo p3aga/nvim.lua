@@ -8,7 +8,7 @@ return {
     },
     event = 'VeryLazy',
     config = function()
-      require('config.lsp')
+      require('plugins.config.lsp')
     end
   },
   {
@@ -50,25 +50,7 @@ return {
       {'<leader>m', '<cmd>Mason<CR>', 'Mason Menu'},
     },
     config = function()
-      require('mason').setup()
-      require('mason-lspconfig').setup({
-        ensure_installed = {
-          'ansiblels',
-          'astro',
-          'bashls',
-          'cssls',
-          'docker_language_server',
-          'docker_compose_language_service',
-          'gopls',
-          'html',
-          'jsonls',
-          'lua_ls',
-          'pyright',
-          'ts_ls',
-          'vue_ls',
-          'yamlls'
-        },
-      })
+      require('plugins.config.mason')
     end
   },
   {

@@ -7,7 +7,7 @@ local opt = vim.opt
 
 opt.confirm = true
 opt.list = true
-opt.listchars:append('space:⋅')
+opt.listchars:append 'space:⋅'
 opt.guicursor = 'n:block,i:ver1,v:hor1'
 opt.cursorline = true
 opt.scrolloff = 5
@@ -27,22 +27,13 @@ opt.signcolumn = 'yes'
 opt.backspace = 'indent,eol,start'
 opt.splitright = true
 opt.splitbelow = true
-opt.iskeyword:append('-')
-opt.clipboard:append('unnamedplus')
+opt.iskeyword:append '-'
+opt.clipboard:append 'unnamedplus'
 
 vim.fn.sign_define(
   'DiagnosticSignError',
   { text = 'E', texthl = 'DiagnosticSignError' }
 )
-vim.fn.sign_define(
-  'DiagnosticSignWarn',
-  { text = 'W', texthl = 'DiagnosticSignWarn' }
-)
-vim.fn.sign_define(
-  'DiagnosticSignInfo',
-  { text = 'I', texthl = 'DiagnosticSignInfo' }
-)
-vim.fn.sign_define(
-  'DiagnosticSignHint',
-  { text = 'H', texthl = 'DiagnosticSignHint' }
-)
+vim.fn.sign_define('DiagnosticSignWarn', { text = 'W', texthl = 'DiagnosticSignWarn' })
+vim.fn.sign_define('DiagnosticSignInfo', { text = 'I', texthl = 'DiagnosticSignInfo' })
+vim.fn.sign_define('DiagnosticSignHint', { text = 'H', texthl = 'DiagnosticSignHint' })

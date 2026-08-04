@@ -1,10 +1,9 @@
-local servers = require('plugins.config.lsp.servers')
-local registry = require('mason-registry')
-local Package = require('mason-core.package')
+local servers = require 'plugins.config.lsp.servers'
+local registry = require 'mason-registry'
+local Package = require 'mason-core.package'
 
 require('mason').setup()
-require('mason-lspconfig').setup({ ensure_installed = servers })
-
+require('mason-lspconfig').setup { ensure_installed = servers }
 
 local formatters_linters = {
   'ansible-lint',
@@ -12,13 +11,12 @@ local formatters_linters = {
   'ruff',
   'stylua',
   'taplo',
-  'yamlfmt'
+  'yamlfmt',
 }
-
 
 ---@param tool_name string
 local function resolve_package(tool_name)
-  local Optional = require "mason-core.optional"
+  local Optional = require 'mason-core.optional'
 
   local ok, pkg = pcall(registry.get_package, tool_name)
   local result = ok and pkg or nil
@@ -40,12 +38,16 @@ for _, tool in ipairs(formatters_linters) do
             vim.schedule_wrap(function(success, err)
               if success then
                 vim.notify(
-                  ("[mason.custom_config] %s was successfully installed"):format(pkg.name),
+                  ('[mason.custom_config] %s was successfully installed'):format(
+                    pkg.name
+                  ),
                   vim.log.levels.INFO
                 )
               else
                 vim.notify(
-                  ("[mason.custom_config] failed to install %s. Installation logs are available in :Mason and :MasonLog"):format(pkg.name),
+                  ('[mason.custom_config] failed to install %s. Installation logs are available in :Mason and :MasonLog'):format(
+                    pkg.name
+                  ),
                   vim.log.levels.ERROR
                 )
               end
@@ -56,7 +58,7 @@ for _, tool in ipairs(formatters_linters) do
     )
     :if_not_present(function()
       vim.notify(
-        ("[mason.custom_config] Tool %q is not exists in mason registry"):format(tool),
+        ('[mason.custom_config] Tool %q is not exists in mason registry'):format(tool),
         vim.log.levels.WARN
       )
     end)

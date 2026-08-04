@@ -1,8 +1,8 @@
-local servers = require('plugins.config.lsp.servers')
+local servers = require 'plugins.config.lsp.servers'
 
 vim.lsp.enable(servers)
 
-vim.diagnostic.config({
+vim.diagnostic.config {
   virtual_text = true,
-  severity_sort = true
-})
+  severity_sort = true,
+}

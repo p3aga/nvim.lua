@@ -4,16 +4,15 @@ vim.g.maplocalleader = ','
 local keymap = vim.keymap
 
 function Close_buffer_or_exit()
-  local countBufs = #vim.fn.getbufinfo({ buflisted = 1})
-  local currentBufferUnsaved = vim.api.nvim_get_option_value(
-    'modified', { buf = vim.fn.bufnr() }
-  )
+  local countBufs = #vim.fn.getbufinfo { buflisted = 1 }
+  local currentBufferUnsaved =
+    vim.api.nvim_get_option_value('modified', { buf = vim.fn.bufnr() })
   if currentBufferUnsaved then
-    print('Save or restore the file!!!')
+    print 'Save or restore the file!!!'
   elseif countBufs > 1 then
-    vim.api.nvim_command('bd')
+    vim.api.nvim_command 'bd'
   else
-    vim.api.nvim_command('q')
+    vim.api.nvim_command 'q'
   end
 end
 

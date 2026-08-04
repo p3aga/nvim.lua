@@ -4,8 +4,8 @@ return {
     dependencies = 'echasnovski/mini.icons',
     event = 'VeryLazy',
     config = function()
-      require('plugins.config.lualine')
-    end
+      require 'plugins.config.lualine'
+    end,
   },
   {
     'ibhagwan/fzf-lua',
@@ -20,8 +20,8 @@ return {
       { '<leader>gc', '<cmd>FzfLua git_commits<CR>', 'Git commits' },
       { '<leader>gx', '<cmd>FzfLua git_bcommits<CR>', 'Git buffer commits' },
       { '<leader>gt', '<cmd>FzfLua git_tags<CR>', 'Git tags' },
-      { '<leader>gb', '<cmd>FzfLua git_branches<CR>', 'Git branches' }
-    }
+      { '<leader>gb', '<cmd>FzfLua git_branches<CR>', 'Git branches' },
+    },
   },
   {
     'folke/which-key.nvim',
@@ -30,13 +30,13 @@ return {
     opts = {
       preset = 'helix',
       icons = {
-        mappings = false
+        mappings = false,
       },
       spec = {
         {
           mode = { 'n' },
           { '<leader>w', desc = 'Write' },
-          { '<leader>q', desc = 'Quit'},
+          { '<leader>q', desc = 'Quit' },
           -- fzf-lua
           { '<leader>f', group = 'Find/files' },
           { '<leader>ff', desc = 'Find files' },
@@ -53,22 +53,22 @@ return {
           -- oil files
           { '<leader>e', desc = 'File explorer' },
           -- trouble
-          { '<leader>t', group = 'Lsp'},
-          { '<leader>tx', desc = 'Project diagnostics'},
-          { '<leader>tX', desc = 'Buffer diagnostics'},
+          { '<leader>t', group = 'Lsp' },
+          { '<leader>tx', desc = 'Project diagnostics' },
+          { '<leader>tX', desc = 'Buffer diagnostics' },
           -- others
           { '<leader>l', desc = 'Lazy' },
         },
-      }
-    }
+      },
+    },
   },
   {
     'nvim-neo-tree/neo-tree.nvim',
-    branch = "v3.x",
+    branch = 'v3.x',
     lazy = false,
     dependencies = {
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
+      'nvim-lua/plenary.nvim',
+      'MunifTanjim/nui.nvim',
     },
     opts = {
       default_component_configs = {
@@ -114,11 +114,11 @@ return {
         {
           event = 'file_opened',
           handler = function()
-            vim.cmd('Neotree close')
+            vim.cmd 'Neotree close'
           end,
         },
       },
-    }
+    },
   },
   {
     'echasnovski/mini.icons',
@@ -127,7 +127,7 @@ return {
     config = function()
       require('mini.icons').setup()
       require('mini.icons').mock_nvim_web_devicons()
-    end
+    end,
   },
   { 'christoomey/vim-tmux-navigator', event = 'VeryLazy' },
 }

@@ -4,12 +4,12 @@ return {
     dependencies = 'HiPhish/rainbow-delimiters.nvim',
     lazy = false,
     build = ':TSUpdate',
-    config = function ()
-      local nvim_treesitter = require('nvim-treesitter')
-      nvim_treesitter.setup({
-        install_dir = vim.fn.stdpath('data') .. '/site'
-      })
-      nvim_treesitter.install({
+    config = function()
+      local nvim_treesitter = require 'nvim-treesitter'
+      nvim_treesitter.setup {
+        install_dir = vim.fn.stdpath 'data' .. '/site',
+      }
+      nvim_treesitter.install {
         'python',
         'vue',
         'html',
@@ -26,21 +26,21 @@ return {
         'vimdoc',
         'gitcommit',
         'gitignore',
-      })
-    end
+      }
+    end,
   },
   {
     'lukas-reineke/indent-blankline.nvim',
     main = 'ibl',
     event = 'VeryLazy',
     opts = {
-      scope = { enabled = false }
-    }
+      scope = { enabled = false },
+    },
   },
   {
     'numToStr/Comment.nvim',
     version = 'v0.8.*',
-    event = 'VeryLazy'
+    event = 'VeryLazy',
   },
   {
     'windwp/nvim-autopairs',
@@ -60,6 +60,6 @@ return {
     event = 'VeryLazy',
     config = function()
       require('gitsigns').setup()
-    end
-  }
+    end,
+  },
 }

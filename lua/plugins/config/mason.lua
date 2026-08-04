@@ -7,6 +7,7 @@ require('mason-lspconfig').setup({ ensure_installed = servers })
 
 
 local formatters_linters = {
+  'ansible-lint',
   'shfmt',
   'ruff',
   'stylua',

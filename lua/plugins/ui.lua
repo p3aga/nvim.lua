@@ -99,7 +99,7 @@ return {
         },
       },
       window = {
-        width = 30,
+        width = 40,
       },
       filesystem = {
         filtered_items = {
@@ -109,6 +109,10 @@ return {
             '.git',
           },
         },
+      },
+      source_selector = {
+        winbar = true,
+        statusline = false,
       },
       event_handlers = {
         {

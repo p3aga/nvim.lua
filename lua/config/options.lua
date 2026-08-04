@@ -30,10 +30,13 @@ opt.splitbelow = true
 opt.iskeyword:append '-'
 opt.clipboard:append 'unnamedplus'
 
-vim.fn.sign_define(
-  'DiagnosticSignError',
-  { text = 'E', texthl = 'DiagnosticSignError' }
-)
-vim.fn.sign_define('DiagnosticSignWarn', { text = 'W', texthl = 'DiagnosticSignWarn' })
-vim.fn.sign_define('DiagnosticSignInfo', { text = 'I', texthl = 'DiagnosticSignInfo' })
-vim.fn.sign_define('DiagnosticSignHint', { text = 'H', texthl = 'DiagnosticSignHint' })
+vim.diagnostic.config {
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = 'E',
+      [vim.diagnostic.severity.WARN] = 'W',
+      [vim.diagnostic.severity.INFO] = 'I',
+      [vim.diagnostic.severity.HINT] = 'H',
+    },
+  },
+}

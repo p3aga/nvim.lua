@@ -12,6 +12,7 @@ local formatters_linters = {
   'stylua',
   'taplo',
   'yamlfmt',
+  'dockerfmt',
 }
 
 ---@param tool_name string

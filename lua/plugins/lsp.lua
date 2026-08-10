@@ -86,6 +86,7 @@ return {
         toml = { 'taplo' },
         yaml = { 'yamlfmt' },
         ansible = { 'yamlfmt' },
+        docker = { 'dockerfmt' },
       },
       default_format_opts = {
         lsp_format = 'fallback',

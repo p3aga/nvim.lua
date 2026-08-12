@@ -86,7 +86,6 @@ return {
         python = { 'ruff_fix', 'ruff_format', 'ruff_organize_imports' },
         toml = { 'taplo' },
         yaml = { 'yamlfmt' },
-        ansible = { 'ansible-lint' },
         docker = { 'dockerfmt' },
       },
       default_format_opts = {
